@@ -1,0 +1,14 @@
+services:
+  crm:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - crm_data:/app/data
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  crm_data:
